@@ -1,0 +1,6 @@
+{
+  "name": "Depo Hanum Qua",
+  "description": "Sistem kassa air bersih mandiri, pencatatan pemakaian, cetak struk kwitansi digital, terintegrasi dengan Google Auth, Google Drive, dan Google Sheets.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

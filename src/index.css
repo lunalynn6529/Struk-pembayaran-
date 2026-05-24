@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400%3B0,600%3B1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-serif: "Playfair Display", Georgia, Cambria, serif;
+  --font-display: "Space Grotesk", sans-serif;
+
+  --color-natural-bg: #F9F7F2;
+  --color-natural-text: #4A4A48;
+  --color-natural-sage: #6B705C;
+  --color-natural-terracotta: #CB997E;
+  --color-natural-khaki: #A5A58D;
+  --color-natural-preview: #F4F1EA;
+  --color-natural-border: #E8E4D9;
+}
+
+/* Custom styles for thermal receipt look & print styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  /* Make only the targeted active-print element and its children visible */
+  .active-print, .active-print * {
+    visibility: visible !important;
+  }
+  
+  .active-print {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: white !important;
+    color: black !important;
+  }
+  
+  body #printable-receipt-area.active-print {
+    width: 80mm !important; /* Standard thermal roll width */
+    padding: 2mm !important;
+  }
+  
+  body #printable-a4-area.active-print {
+    width: 210mm !important; /* Standard A4 width */
+    height: 297mm !important; /* Standard A4 height */
+    padding: 10mm !important;
+  }
+}
+
+/* Standard custom dotted look */
+.dashed-divider {
+  border-top: 1px dashed rgba(0, 0, 0, 0.25);
+}
+
+.dashed-divider-dark {
+  border-top: 1px dashed rgba(255, 255, 255, 0.25);
+}
+
+/* Subtle thermal receipt shadows & textures */
+.receipt-paper {
+  background-color: #ffffff;
+  position: relative;
+}
+
+.receipt-paper-vintage {
+  background-color: #faf6eb;
+  background-image: radial-gradient(#efe8d4 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+/* Jagged edge simulation using absolute elements */
+.receipt-jagged-bottom {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 98%, 97.5% 100%, 95% 98%, 92.5% 100%, 90% 98%, 87.5% 100%, 85% 98%, 82.5% 100%, 80% 98%, 77.5% 100%, 75% 98%, 72.5% 100%, 70% 98%, 67.5% 100%, 65% 98%, 62.5% 100%, 60% 98%, 57.5% 100%, 55% 98%, 52.5% 100%, 50% 98%, 47.5% 100%, 45% 98%, 42.5% 100%, 40% 98%, 37.5% 100%, 35% 98%, 32.5% 100%, 30% 98%, 27.5% 100%, 25% 98%, 22.5% 100%, 20% 98%, 17.5% 100%, 15% 98%, 12.5% 100%, 10% 98%, 7.5% 100%, 5% 98%, 2.5% 100%, 0% 98%);
+}
+
